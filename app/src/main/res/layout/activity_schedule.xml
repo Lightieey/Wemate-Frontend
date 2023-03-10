@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yellow2"
+    android:orientation="vertical"
+    tools:context=".Schedule">
+
+    <!--툴바...........................................-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/yellow2">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/back"
+            android:minHeight="?attr/actionBarSize"
+            app:menu="@menu/toolbar_none">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="하우스"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/btn_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:onClick="onButton1Clicked"
+                android:scaleType="centerCrop"
+                android:src="@drawable/add" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <!--하우스 메뉴바...........................................-->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp">
+
+            <LinearLayout
+                android:id="@+id/menu_bar"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/shape"
+                android:orientation="horizontal"
+                android:padding="3dp">
+
+                <Button
+                    android:id="@+id/btn_rules"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/yellow2"
+                    android:text="규칙"
+                    android:textSize="13dp" />
+
+                <Button
+                    android:id="@+id/btn_board"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/yellow2"
+                    android:text="게시판"
+                    android:textSize="13dp" />
+
+                <Button
+                    android:id="@+id/btn_expense"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/yellow2"
+                    android:text="생활비"
+                    android:textSize="13dp" />
+
+                <Button
+                    android:id="@+id/btn_schedule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:text="일정"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="362dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:background="@color/white"
+                android:elevation="5dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp">
+
+                    <CalendarView
+                        android:id="@+id/calendarView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="300dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:focusedMonthDateColor="@color/back"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+                    <TextView
+                        android:id="@+id/diaryTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+
+                    <EditText
+                        android:id="@+id/contextEditText"
+                        android:layout_width="0dp"
+                        android:layout_height="116dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:ems="10"
+                        android:hint="내용을 입력하세요."
+                        android:inputType="textMultiLine"
+                        android:visibility="invisible"
+                        android:textSize="15dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/diaryTextView" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:visibility="invisible"
+                        app:layout_constraintBottom_toBottomOf="@+id/contextEditText"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/contextEditText"
+                        app:layout_constraintTop_toTopOf="@+id/contextEditText" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center"
+                        android:text="달력"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textColor="#9E28B3"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:visibility="invisible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/save_Btn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/btn_round"
+                        android:minHeight="0dp"
+                        android:padding="8dp"
+                        android:text="저장"
+                        android:textSize="13dp"
+                        android:visibility="invisible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/contextEditText" />
+
+
+                    <Button
+                        android:id="@+id/cha_Btn"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/btn_round"
+                        android:minHeight="0dp"
+                        android:padding="8dp"
+                        android:text="수정"
+                        android:textSize="13dp"
+                        android:visibility="invisible"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/save_Btn"
+                        app:layout_constraintEnd_toStartOf="@+id/del_Btn"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <Button
+                        android:id="@+id/del_Btn"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:background="@drawable/btn_round"
+                        android:minHeight="0dp"
+                        android:padding="8dp"
+                        android:text="삭제"
+                        android:textSize="13dp"
+                        android:visibility="invisible"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/cha_Btn"
+                        app:layout_constraintEnd_toEndOf="@+id/save_Btn" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+        <!--       하단 바....................................-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shadow_box"
+            android:orientation="horizontal"
+            android:paddingLeft="70dp"
+            android:paddingRight="70dp">
+
+            <Button
+                android:id="@+id/menu_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:drawableTop="@drawable/search"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="검색"
+                android:textSize="12dp" />
+
+
+            <Button
+                android:id="@+id/menu_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@android:color/transparent"
+                android:drawableTop="@drawable/home_clicked"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="하우스"
+                android:textColor="#e5ca73"
+                android:textSize="14dp" />
+
+
+            <Button
+                android:id="@+id/menu_pf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:drawableTop="@drawable/person"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="프로필"
+                android:textSize="12dp" />
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+    <!-- 슬라이드 레이아웃 ...................................... -->
+    <!--    android:visibility="gone"-->
+    <LinearLayout
+        android:id="@+id/slidingPage01"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingTop="20dp"
+        android:paddingRight="30dp"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/btn_edit2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:background="@android:color/transparent"
+            android:onClick="onButton1Clicked"
+            android:scaleType="centerCrop"
+            android:src="@drawable/delete" />
+
+        <!--        <RelativeLayout-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content">-->
+
+        <!--            <TextView-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_alignParentLeft="true"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:text="하우스 이름"-->
+        <!--                android:textColor="@color/black"-->
+        <!--                android:textSize="16dp"-->
+        <!--                android:textStyle="bold" />-->
+
+        <!--            <TextView-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:text="하우스"-->
+        <!--                android:textSize="16dp"-->
+        <!--                android:layout_toLeftOf="@id/slide_edit"/>-->
+
+        <!--            <ImageButton-->
+        <!--                android:id="@+id/slide_edit"-->
+        <!--                android:layout_width="20dp"-->
+        <!--                android:layout_height="18dp"-->
+        <!--                android:layout_alignParentRight="true"-->
+        <!--                android:layout_centerVertical="true"-->
+        <!--                android:layout_marginLeft="5dp"-->
+        <!--                android:background="@android:color/transparent"-->
+        <!--                android:scaleType="centerCrop"-->
+        <!--                android:src="@drawable/edit" />-->
+        <!--        </RelativeLayout>-->
+
+        <!--        <View-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="2dp"-->
+        <!--            android:background="@color/yellow2" />-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="메이트"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="15dp"
+            android:background="@color/yellow2" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:id="@+id/i_img"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="top"
+                android:layout_marginRight="7dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/user_blue" />
+
+            <TextView
+                android:id="@+id/i_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/i_img"
+                android:text="내 아이디"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:id="@+id/u_img"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="top"
+                android:layout_marginRight="7dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/user_blue" />
+
+            <TextView
+                android:id="@+id/u_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/u_img"
+                android:text="상대 아이디"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</FrameLayout>

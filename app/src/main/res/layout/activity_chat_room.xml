@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Chat.ChatRoom">
+
+    //툴바
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/back"
+        android:minHeight="?attr/actionBarSize"
+        app:menu="@menu/toolbar_back"
+        app:navigationIcon="@drawable/arrow_back">
+
+        <TextView
+            android:id="@+id/u_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="상대 닉네임"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    // 매칭 알림창
+
+    <LinearLayout
+        android:id="@+id/notice_match"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/toolbar"
+        android:background="@drawable/rectangular_box"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="상대와 메이트를 하시겠습니까?"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/btn_popup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_round"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingLeft="13dp"
+            android:paddingTop="7dp"
+            android:paddingRight="13dp"
+            android:paddingBottom="7dp"
+            android:text="✨매칭하기"
+            android:textSize="14dp"
+            android:textColor="#e5cb69"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    //채팅
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chat_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/chat_layout"
+        android:layout_below="@id/notice_match"
+        android:layout_marginTop="5dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+    //채팅 작성칸
+    <LinearLayout
+        android:id="@+id/chat_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <EditText
+            android:id="@+id/editChat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#e7e7e7"
+            android:inputType="textMultiLine|textNoSuggestions"
+            android:maxLength="120"
+            android:maxLines="5"
+            android:padding="6dp" />
+
+        <ImageButton
+            android:id="@+id/btn_send"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/transparent"
+            android:foreground="?attr/selectableItemBackground"
+            android:scaleType="fitXY"
+            android:src="@drawable/chat_send" />
+    </LinearLayout>
+
+
+</RelativeLayout>

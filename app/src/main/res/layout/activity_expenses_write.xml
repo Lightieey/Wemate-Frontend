@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yellow2"
+    android:orientation="vertical"
+    tools:context=".RulesBulletin">
+
+
+    <LinearLayout
+        android:layout_width="362dp"
+        android:layout_height="478dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/shape"
+        android:elevation="20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp">
+
+            <EditText
+                android:id="@+id/money"
+                android:layout_width="240dp"
+                android:layout_height="60dp"
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="원"
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/money"
+            android:spinnerMode="dropdown"
+            android:textAlignment="center"
+            android:textSize="14dp">
+
+        </Spinner>
+
+        <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="368dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:background="@color/purple_200"
+                android:onClick="OnClickHandler"
+                android:text="날짜 선택하기"
+                android:textSize="14dp"
+                tools:ignore="OnClick" />
+
+            <TextView
+                android:id="@+id/textView_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text=""
+                android:layout_marginTop="5dp"
+                android:textSize="16dp"
+                android:textColor="@color/black"/>
+<!--            android:text="20**년**월**일"-->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="245dp"
+            android:layout_height="183dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/box_gray"
+            android:elevation="15dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/memo"
+                android:layout_width="222dp"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:ems="20"
+                android:hint="메모"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:paddingTop="10dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black"
+                android:textSize="17dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp">
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="3dp"
+                android:background="@drawable/btn_round"
+                android:text="저   장"
+                android:textSize="14dp" />
+            <!--        android:layout_marginBottom="30dp"-->
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
